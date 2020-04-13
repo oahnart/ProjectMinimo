@@ -1,0 +1,207 @@
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../FONTS/Playfair_Display/PlayfairDisplay-Regular.eot');
+    src: url('../FONTS/Playfair_Display/PlayfairDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../FONTS/Playfair_Display/PlayfairDisplay-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../FONTS/Ubuntu/Ubuntu-Light.eot');
+    src: url('../FONTS/Ubuntu/Ubuntu-Light.eot?#iefix') format('embedded-opentype'),
+    url('../FONTS/Ubuntu/Ubuntu-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Playfair Display";
+}
+
+@media ( min-width: 1200px ) {
+    /*1062 +30  = 1092 padding left right 15px vì ảnh to dưới menu width = 1062*/
+    .container {
+        max-width: 1092px;
+    }
+    .container .navbar{
+        padding: 0;
+    }
+    body {
+        font-size: 14px;
+        color: #626262;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    header {
+        height: 165px;
+        line-height: 165px;
+        margin: 0px 69px 0px 69px;
+    }
+
+    header nav div li {
+        margin-left: 95px;
+    }
+
+    header nav div ul {
+        margin-left: 240px;
+    }
+
+    header nav div ul li a {
+        color: #626262 !important;
+    }
+
+    section .photodiary {
+        font-family: "Ubuntu Light";
+        color: #b4ad9e;
+    }
+
+    section .the-perfect {
+        font-size: 30px;
+        margin-top: 28px;
+        margin-bottom: 30px;
+    }
+
+    section .full-lorem {
+        font-optical-sizing: revert;
+        line-height: 24px;
+    }
+
+    section .leavea {
+        color: #b4ad9e;
+        font-family: "Ubuntu Light";
+        margin-top: 50px;
+    }
+
+    section .section-text {
+        margin: 99px 81px 132px 81px;
+    }
+
+    section .section-img {
+        margin: 99px 81px 168px 81px;
+    }
+
+    /*margin và padding triệt tiêu nhau*/
+    section .section-img .item-row {
+        margin-right: -30px;
+        margin-left: -30px;
+    }
+
+    section .section-img .item-row .item-col {
+        padding-right: 30px;
+        padding-left: 30px;
+    }
+
+    section .section-img .item-row .item-col .item-div-1 {
+        font-family: "Ubuntu Light";
+        color: #b4ad9e;
+        margin-top: 31px;
+    }
+
+    section .section-img .item-row .item-col .item-div-2 {
+        font-size: 30px;
+        margin-top: 26px;
+    }
+
+    section .section-img .item-row .item-col .item-div-3 {
+        line-height: 24px;
+        margin-top: 35px;
+
+    }
+
+    section .section-img .item-row .item-col .item-div {
+        margin-top: 135px;
+
+    }
+
+    section .section-form {
+        margin-top: 120px;
+        margin-bottom: 105px;
+        background-color: #f0f0f0;
+        height: 286px;
+    }
+
+    section .section-form .item-section-form {
+        text-align: center;
+    }
+
+    section .section-form .item-section-form .item-p {
+        display: inline-block;
+        margin-top: 71px;
+        font-size: 30px;
+        color: #333333;
+        word-spacing: 4px;
+    }
+
+    section .section-form .item-section-form .item-p-1 {
+        display: inline-block;
+        line-height: 24px;
+    }
+
+    section .section-form .item-section-form .row {
+        margin: 82px 475px -10px 475px;
+    }
+
+    section .section-loadmore {
+        text-align: center;
+        margin-bottom: 1368px;
+    }
+
+    section .section-loadmore .item-section-loadmore {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 24px;
+        border: 1px solid;
+        padding: 22px 35px;
+        box-shadow: 1px 1px;
+    }
+
+    footer .footer-1 .item-footer-1 .row {
+        margin: 0px;
+    }
+
+    footer {
+        background-color: #f0f0f0;
+        height: 100px;
+        line-height: 100px;
+    }
+
+    footer .item-footer-1 div {
+        color: #000000;
+    }
+
+    footer .item-footer-1 {
+        padding-left: 81px;
+    }
+
+
+    footer .footer-1 .item-footer-1 .item-row-1 {
+        margin-left: 16px;
+    }
+
+    footer .footer-1 .item-footer-1 .item-row-2 {
+        margin-right: 22px;
+    }
+
+    footer .footer-1 .item-footer-1 .item-row-fb {
+        margin-right: 16px;
+    }
+
+    footer .footer-1 .item-footer-1 .item-row-twitter {
+        margin-right: 17px;
+    }
+    .news_image_intro{
+        width: 420px;
+        height: 280px;
+    }
+}
