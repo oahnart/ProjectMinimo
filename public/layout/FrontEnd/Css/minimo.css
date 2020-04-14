@@ -88,7 +88,7 @@ body {
     }
 
     section .section-img {
-        margin: 99px 81px 168px 81px;
+        margin: 99px 81px 123px 81px;
     }
 
     /*margin và padding triệt tiêu nhau*/
@@ -100,6 +100,9 @@ body {
     section .section-img .item-row .item-col {
         padding-right: 30px;
         padding-left: 30px;
+    }
+    section .section-img .item-row .item-col-1 {
+        padding-bottom: 130px;
     }
 
     section .section-img .item-row .item-col .item-div-1 {

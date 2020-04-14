@@ -43,20 +43,39 @@
     </section>
 
     <section class="container">
-            <div class="section-img">
-                <div class="row item-row">
-                    @foreach($news as $new)
-                    <div class="col-12 col-lg-6 item-col">
+        <div class="section-img">
+            <div class="row item-row">
+                @foreach($news1 as $new)
+                    <div class="col-12 col-lg-6 item-col item-col-1">
                         <div>
                             <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
-                            <div class="item-div-1">LIFESTYLE</div>
+                            @foreach($categories as $category)
+                                @if($new->category_id == $category->id)
+                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                @endif
+                            @endforeach
                             <div class="item-div-2">{{$new->name}}</div>
                             <div class="item-div-3">{{$new->description}}</div>
                         </div>
                     </div>
-                    @endforeach
-                </div>
+                @endforeach
+                @foreach($news2 as $new)
+                    <div class="col-12 col-lg-6 item-col">
+                        <div>
+                            <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
+                            @foreach($categories as $category)
+                                @if($new->category_id == $category->id)
+                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                @endif
+                            @endforeach
+                            <div class="item-div-2">{{$new->name}}</div>
+                            <div class="item-div-3">{{$new->description}}</div>
+                        </div>
+                    </div>
+                @endforeach
+
             </div>
+        </div>
     </section>
     <section>
         <div class="section-form">
@@ -74,14 +93,20 @@
     <section class="container">
         <div class="section-img">
             <div class="row item-row">
-                <div class="col-12 col-lg-6 item-col">
-                    <div>
-                        <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
-                        <div class="item-div-1">LIFESTYLE</div>
-                        <div class="item-div-2">{{$new->name}}</div>
-                        <div class="item-div-3">{{$new->description}}</div>
+                @foreach($news3 as $new)
+                    <div class="col-12 col-lg-6 item-col">
+                        <div>
+                            <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
+                            @foreach($categories as $category)
+                                @if($new->category_id == $category->id)
+                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                @endif
+                            @endforeach
+                            <div class="item-div-2">{{$new->name}}</div>
+                            <div class="item-div-3">{{$new->description}}</div>
+                        </div>
                     </div>
-                </div>
+                @endforeach
             </div>
         </div>
 

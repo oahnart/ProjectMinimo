@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -24,7 +25,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $news = DB::table('news')->orderBy('created_at')->get();
-        return view('home',compact('news'));
+        $categories = Category::all();
+        $news1 = DB::table('news')->take(2)->where('category_id','=',5)->get();
+        $news2 = DB::table('news')->take(2)->where('category_id','=',6)->get();
+        $news3 = DB::table('news')->take(2)->where('category_id','=',7)->get();
+        return view('home',compact('news1','news2','news3','categories'));
     }
 }

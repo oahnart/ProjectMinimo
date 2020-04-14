@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Category;
 use App\Http\Controllers\Controller;
 use App\News;
 use Illuminate\Http\Request;
@@ -12,12 +13,14 @@ class NewsController extends Controller
     function getListNews()
     {
         $news = News::all();
-        return view('admin.new.ListNews', compact('news'));
+        $categories = Category::all();
+        return view('admin.new.ListNews', compact('news','categories'));
     }
 
     function getAddNews()
     {
-        return view('admin.new.AddNews');
+        $categories = Category::all();
+        return view('admin.new.AddNews',compact('categories'));
     }
 
     function postAddNews(Request $request)
@@ -28,9 +31,10 @@ class NewsController extends Controller
             'description' => 'required',
         ]);
         $newsModel = new News();
+        $newsModel->category_id = $post['category_id'];
         $newsModel->name = $post['name'];
         $newsModel->description = $post['description'];
-        $newsModel->created_at = date('y-m-d');
+        $newsModel->created_at = date('d-m-Y h:m');
         if ($newsModel->save()) {
             if ($request->hasFile('news_image_intro')) {
                 $file = $request->news_image_intro;
@@ -52,7 +56,8 @@ class NewsController extends Controller
 
     function getEditNews($id){
         $news = News::find($id);
-        return view('admin.new.EditNews',compact('news'));
+        $categories = Category::all();
+        return view('admin.new.EditNews',compact('news','categories'));
     }
 
     function postEditNews($id , Request $request){
@@ -62,9 +67,10 @@ class NewsController extends Controller
             'description' => 'required',
         ]);
         $newsModel = News::find($id);
+        $newsModel->category_id = $post['category_id'];
         $newsModel->name = $post['name'];
         $newsModel->description = $post['description'];
-        $newsModel->created_at = date('y-m-d');
+        $newsModel->created_at = date('d-m-Y h:m');
         if ($newsModel->save()) {
             if ($request->hasFile('news_image_intro')) {
                 $file = $request->news_image_intro;

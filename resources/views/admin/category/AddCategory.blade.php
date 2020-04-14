@@ -10,28 +10,12 @@
         </div>
     @endif
     <div class="container">
-        <form action="{{route('post_add_news')}}" method="post" enctype="multipart/form-data">
+        <form action="{{route('post_add_category')}}" method="post" enctype="multipart/form-data">
             <table class="table table-bordered">
                 <tr>
-                    <th>Name</th>
+                    <th>Category Name</th>
                     <th>
-                        <input type="text" class="form-control" name="name">
-                    </th>
-                </tr>
-                <tr>
-                    <th>Category Id</th>
-                    <th>
-                        <select name="category_id" id="">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}">{{$category->category_name}}</option>
-                            @endforeach
-                        </select>
-                    </th>
-                </tr>
-                <tr>
-                    <th>Image</th>
-                    <th>
-                        <input type="file" class="form-control" name="news_image_intro">
+                        <input type="text" class="form-control" name="category_name">
                     </th>
                 </tr>
                 <tr>

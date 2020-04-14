@@ -5,6 +5,7 @@
             <thead>
             <tr>
                 <th>ID</th>
+                <th>Category Name</th>
                 <th>Name</th>
                 <th>Image</th>
                 <th>Description</th>
@@ -18,10 +19,17 @@
             @foreach($news as $new)
                 <tr>
                     <td>{{$new->id}}</td>
+                    <td>
+                        @foreach($categories as $category)
+                            @if($new->category_id == $category->id)
+                                <label>{{$category->category_name}}</label>
+                            @endif
+                        @endforeach
+                    </td>
                     <td>{{$new->name}}</td>
                     <td><img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt=""></td>
                     <td>{{$new->description}}</td>
-                    <td>{{date('d-m-Y', strtotime($new->created_at)) }}</td>
+                    <td>{{date('d-m-Y h:m', strtotime($new->created_at)) }}</td>
                     <th>
                         <a href="{{route('edit_news',$new->id)}}" class="btn btn-primary">Edit</a>
                         <a href="{{route('delete_news',$new->id)}}" class="btn btn-primary">Delete</a>
