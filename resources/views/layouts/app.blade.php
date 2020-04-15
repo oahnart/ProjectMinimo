@@ -18,14 +18,13 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('layout/FrontEnd/Boostrap4/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('layout/FrontEnd/Css/minimo.css')}}">
 </head>
 <body>
 <header class="container">
     <nav class="navbar navbar-expand-md bg-white navbar-light">
         <a class="navbar-brand" href="#"><img src="{{asset('layout/FrontEnd/images/minimo12.jpg')}}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" >
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -61,9 +60,12 @@
                     <div class="row">
                         <div class="item-row-2">Follow</div>
                         <div class="test">
-                            <span class="item-row-fb"><img src="{{asset('layout/FrontEnd/images/fb.png')}}" alt=""></span>
-                            <span class="item-row-twitter"><img src="{{asset('layout/FrontEnd/images/twitter.png')}}" alt=""></span>
-                            <span class="item-row-insta"><img src="{{asset('layout/FrontEnd/images/insta.png')}}" alt=""></span>
+                            <span class="item-row-fb"><img src="{{asset('layout/FrontEnd/images/fb.png')}}"
+                                                           alt=""></span>
+                            <span class="item-row-twitter"><img src="{{asset('layout/FrontEnd/images/twitter.png')}}"
+                                                                alt=""></span>
+                            <span class="item-row-insta"><img src="{{asset('layout/FrontEnd/images/insta.png')}}"
+                                                              alt=""></span>
                         </div>
                     </div>
                 </div>
@@ -71,8 +73,5 @@
         </div>
     </div>
 </footer>
-
-<script src="{{asset('layout/FrontEnd/jquery/dist/jquery.min.js')}}"></script>
-<script src="{{asset('layout/FrontEnd/Boostrap4/js/bootstrap.min.js')}}"></script>
 </body>
 </html>
