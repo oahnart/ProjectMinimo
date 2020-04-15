@@ -60,12 +60,15 @@
                     <div class="row">
                         <div class="item-row-2">Follow</div>
                         <div class="test">
-                            <span class="item-row-fb"><img src="{{asset('layout/FrontEnd/images/fb.png')}}"
-                                                           alt=""></span>
-                            <span class="item-row-twitter"><img src="{{asset('layout/FrontEnd/images/twitter.png')}}"
-                                                                alt=""></span>
-                            <span class="item-row-insta"><img src="{{asset('layout/FrontEnd/images/insta.png')}}"
-                                                              alt=""></span>
+                            <span class="item-row-fb">
+                                <img src="{{asset('layout/FrontEnd/images/fb.png')}}" alt="">
+                            </span>
+                            <span class="item-row-twitter">
+                                <img src="{{asset('layout/FrontEnd/images/twitter.png')}}" alt="">
+                            </span>
+                            <span class="item-row-insta">
+                                <img src="{{asset('layout/FrontEnd/images/insta.png')}}" alt="">
+                            </span>
                         </div>
                     </div>
                 </div>
