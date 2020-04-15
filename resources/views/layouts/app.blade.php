@@ -18,8 +18,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{asset('layout/FrontEnd/jquery/dist/jquery.min.js')}}"></script>
-    <script src="{{asset('layout/FrontEnd/Boostrap4/js/bootstrap.min.js')}}"></script>
     <link rel="stylesheet" href="{{asset('layout/FrontEnd/Boostrap4/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('layout/FrontEnd/Css/minimo.css')}}">
 </head>
@@ -27,7 +25,7 @@
 <header class="container">
     <nav class="navbar navbar-expand-md bg-white navbar-light">
         <a class="navbar-brand" href="#"><img src="{{asset('layout/FrontEnd/images/minimo12.jpg')}}" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar" >
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
@@ -73,5 +71,8 @@
         </div>
     </div>
 </footer>
+
+<script src="{{asset('layout/FrontEnd/jquery/dist/jquery.min.js')}}"></script>
+<script src="{{asset('layout/FrontEnd/Boostrap4/js/bootstrap.min.js')}}"></script>
 </body>
 </html>

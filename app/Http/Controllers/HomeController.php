@@ -26,9 +26,9 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $news1 = DB::table('news')->take(2)->where('category_id','=',5)->get();
-        $news2 = DB::table('news')->take(2)->where('category_id','=',6)->get();
-        $news3 = DB::table('news')->take(2)->where('category_id','=',7)->get();
+        $news1 = DB::table('news')->take(2)->where('category_id','=',5)->orderBy('id','desc')->get();
+        $news2 = DB::table('news')->take(2)->where('category_id','=',6)->orderBy('id','desc')->get();
+        $news3 = DB::table('news')->take(2)->where('category_id','=',7)->orderBy('id','desc')->get();
         return view('home',compact('news1','news2','news3','categories'));
     }
 }

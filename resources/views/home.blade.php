@@ -77,7 +77,7 @@
             </div>
         </div>
     </section>
-    <section>
+    <section class="respon-none">
         <div class="section-form">
             <div class="item-section-form">
                 <div class="item-p">Sign up for our newsletter!</div>
@@ -85,7 +85,7 @@
                     <div class="item-p-1">Enter a valid email address</div>
                     <div><img src="{{asset('layout/FrontEnd/images/icon.png')}}" alt=""></div>
                 </div>
-                <div><img src="{{asset('layout/FrontEnd/images/minimo6.png')}}" alt=""></div>
+                <div class="repon-hr"><img src="{{asset('layout/FrontEnd/images/minimo6.png')}}" alt=""></div>
             </div>
 
         </div>
