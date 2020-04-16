@@ -71,10 +71,7 @@
     </div>
 </div>
 <style type="text/css">
-    header{
-        display: none;
-    }
-    footer{
+    header , footer , section{
         display: none;
     }
     body{

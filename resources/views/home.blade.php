@@ -1,18 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-
-
-    <section class="container">
-        <div>
-            <img src="{{asset('layout/FrontEnd/images/minimo1.jpg')}}" alt="">
-        </div>
-    </section>
     <section class="container">
         <div class="section-text">
-            <div class="photodiary">
+            <a href="{{route('photodiary')}}" class="photodiary">
                 PHOTODIARY
-            </div>
+            </a>
             <div class="the-perfect">
                 The perfect weekend getaway
             </div>
@@ -48,10 +41,13 @@
                 @foreach($news1 as $new)
                     <div class="col-12 col-lg-6 item-col item-col-1">
                         <div>
-                            <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
+                            <a href="{{route('liftstyle')}}"><img class="news_image_intro"
+                                                                  src="{{url('/')}}/{{$new->news_image_intro}}" alt=""></a>
                             @foreach($categories as $category)
                                 @if($new->category_id == $category->id)
-                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                    <div class="item-div-1"><a class="item-a"
+                                                               href="{{route('liftstyle')}}">{{$category->category_name}}</a>
+                                    </div>
                                 @endif
                             @endforeach
                             <div class="item-div-2">{{$new->name}}</div>
@@ -62,10 +58,13 @@
                 @foreach($news2 as $new)
                     <div class="col-12 col-lg-6 item-col">
                         <div>
-                            <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
+                            <a href="{{route('photodiary')}}"><img class="news_image_intro"
+                                                                   src="{{url('/')}}/{{$new->news_image_intro}}" alt=""></a>
                             @foreach($categories as $category)
                                 @if($new->category_id == $category->id)
-                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                    <div class="item-div-1"><a class="item-a"
+                                                               href="{{route('photodiary')}}">{{$category->category_name}}</a>
+                                    </div>
                                 @endif
                             @endforeach
                             <div class="item-div-2">{{$new->name}}</div>
@@ -81,11 +80,11 @@
         <div class="section-form">
             <div class="item-section-form">
                 <div class="item-p">Sign up for our newsletter!</div>
-                <div class="row justify-content-between">
-                    <div class="item-p-1">Enter a valid email address</div>
-                    <div><img src="{{asset('layout/FrontEnd/images/icon.png')}}" alt=""></div>
-                </div>
-                <div class="repon-hr"><img src="{{asset('layout/FrontEnd/images/minimo6.png')}}" alt=""></div>
+                <form action="" class="">
+                    <input type="text" placeholder="Enter a valid email address"><span><img
+                                src="{{asset('layout/FrontEnd/images/icon.png')}}" alt=""></span>
+                    {{csrf_field()}}
+                </form>
             </div>
 
         </div>
@@ -96,10 +95,13 @@
                 @foreach($news3 as $new)
                     <div class="col-12 col-lg-6 item-col">
                         <div>
-                            <img class="news_image_intro" src="{{url('/')}}/{{$new->news_image_intro}}" alt="">
+                            <a href="{{route('liftstyle')}}"><img class="news_image_intro"
+                                                                  src="{{url('/')}}/{{$new->news_image_intro}}" alt=""></a>
                             @foreach($categories as $category)
                                 @if($new->category_id == $category->id)
-                                    <div class="item-div-1">{{$category->category_name}}</div>
+                                    <div class="item-div-1"><a class="item-a"
+                                                               href="{{route('liftstyle')}}">{{$category->category_name}}</a>
+                                    </div>
                                 @endif
                             @endforeach
                             <div class="item-div-2">{{$new->name}}</div>
@@ -114,11 +116,8 @@
     <section>
         <div class="section-loadmore">
             <div class="item-section-loadmore">
-                Load more
+                <a href="{{route('home.loadmore')}}">Load more</a>
             </div>
         </div>
     </section>
-
-
-
 @endsection

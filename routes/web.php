@@ -20,6 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home/loadmore', 'HomeController@load_more')->name('home.loadmore');
+
+Route::get('/liftstyle', 'LiftstyleController@index')->name('liftstyle');
+Route::get('/liftstyle/loadmore', 'LiftstyleController@load_more')->name('liftstyle.loadmore');
+
+Route::get('/photodiary', 'PhotodiaryController@index')->name('photodiary');
+Route::get('/photodiary/loadmore', 'PhotodiaryController@load_more')->name('photodiary.loadmore');
+
 
 Route::group([
     'prefix' => 'admin',

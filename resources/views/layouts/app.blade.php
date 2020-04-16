@@ -23,17 +23,17 @@
 <body>
 <header class="container">
     <nav class="navbar navbar-expand-md bg-white navbar-light">
-        <a class="navbar-brand" href="#"><img src="{{asset('layout/FrontEnd/images/minimo12.jpg')}}" alt=""></a>
+        <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('layout/FrontEnd/images/minimo12.jpg')}}" alt=""></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">LIFESTYLE</a>
+                    <a class="nav-link" href="{{route('liftstyle')}}">LIFESTYLE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">PHOTODIARY</a>
+                    <a class="nav-link" href="{{route('photodiary')}}">PHOTODIARY</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">MUSIC</a>
@@ -45,6 +45,11 @@
         </div>
     </nav>
 </header>
+<section class="container">
+    <div>
+        <img src="{{asset('layout/FrontEnd/images/minimo1.jpg')}}" alt="">
+    </div>
+</section>
 <main >
     @yield('content')
 </main>

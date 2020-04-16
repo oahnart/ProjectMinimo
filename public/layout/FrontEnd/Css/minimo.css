@@ -24,7 +24,9 @@
 body {
     font-family: "Playfair Display";
 }
-
+a{
+    text-decoration: none;
+}
 @media ( min-width: 1200px ) {
     /*1062 +30  = 1092 padding left right 15px vì ảnh to dưới menu width = 1062*/
     .container {
@@ -65,6 +67,7 @@ body {
     section .photodiary {
         font-family: "Ubuntu Light";
         color: #b4ad9e;
+        text-decoration: none;
     }
 
     section .the-perfect {
@@ -108,9 +111,12 @@ body {
     }
 
     section .section-img .item-row .item-col .item-div-1 {
+        margin-top: 31px;
+    }
+    section .section-img .item-row .item-col .item-div-1 .item-a{
         font-family: "Ubuntu Light";
         color: #b4ad9e;
-        margin-top: 31px;
+        text-decoration: none;
     }
 
     section .section-img .item-row .item-col .item-div-2 {
@@ -143,15 +149,30 @@ body {
     section .section-form .item-section-form .item-p {
         display: inline-block;
         margin-top: 71px;
+        margin-bottom: 85px;
         font-size: 30px;
         color: #333333;
         word-spacing: 4px;
     }
 
-    section .section-form .item-section-form .item-p-1 {
-        display: inline-block;
+    ::placeholder{
+        color: #626262;
+        font-size: 14px;
+        font-family: "Playfair Display";
         line-height: 24px;
     }
+    section .section-form .item-section-form form{
+        max-width: 400px;
+        margin: 0 auto;
+        border-bottom: 1px solid #626262;
+        display: flex;
+    }
+    section .section-form .item-section-form input{
+        background-color: #f0f0f0;
+        border: 1px solid #f0f0f0;
+        flex: 1;
+    }
+
 
     section .section-form .item-section-form .row {
         margin: 82px 485px -10px 485px;
@@ -164,11 +185,16 @@ body {
 
     section .section-loadmore .item-section-loadmore {
         display: inline-block;
-        font-size: 20px;
         line-height: 24px;
         border: 1px solid;
         padding: 22px 35px;
         box-shadow: 1px 1px;
+    }
+    section .section-loadmore div a{
+        font-size: 20px;
+        line-height: 24px;
+        text-decoration: none;
+        color: #626262;
     }
 
     footer .footer-1 .item-footer-1 .row {
@@ -240,6 +266,7 @@ body {
     section .photodiary {
         font-family: "Ubuntu Light";
         color: #b4ad9e;
+        text-decoration: none;
     }
 
     section .the-perfect {
@@ -283,9 +310,12 @@ body {
     }
 
     section .section-img .item-row .item-col .item-div-1 {
+        margin-top: 31px;
+    }
+    section .section-img .item-row .item-col .item-div-1 .item-a{
         font-family: "Ubuntu Light";
         color: #b4ad9e;
-        margin-top: 15px;
+        text-decoration: none;
     }
 
     section .section-img .item-row .item-col .item-div-2 {
@@ -305,19 +335,40 @@ body {
 
     section .section-form .item-section-form {
         text-align: center;
+        padding-bottom: 20px;
+    }
+    section .section-form .item-section-form .item-p {
+        display: inline-block;
+        margin-top: 71px;
+        margin-bottom: 25px;
+        font-size: 30px;
+        color: #333333;
+        word-spacing: 4px;
     }
 
+    ::placeholder{
+        color: #626262;
+        font-size: 10px;
+        font-family: "Playfair Display";
+        line-height: 14px;
+    }
+    section .section-form .item-section-form form{
+        max-width: 200px;
+        margin: 0 auto;
+        border-bottom: 1px solid #626262;
+        display: flex;
+    }
+    section .section-form .item-section-form input{
+        background-color: #f0f0f0;
+        border: 1px solid #f0f0f0;
+        flex: 1;
+    }
     section .section-form .item-section-form .item-p {
         display: inline-block;
         margin-top: 10px;
         font-size: 15px;
         color: #333333;
         word-spacing: 2px;
-    }
-
-    section .section-form .item-section-form .item-p-1 {
-        display: inline-block;
-        line-height: 14px;
     }
 
     section .section-form .item-section-form .row {
@@ -330,15 +381,20 @@ body {
 
     section .section-loadmore {
         text-align: center;
+        margin-bottom: 40px;
     }
 
     section .section-loadmore .item-section-loadmore {
         display: inline-block;
-        font-size: 14px;
-        line-height: 12px;
         border: 1px solid;
         padding: 10px 15px;
         box-shadow: 1px 1px;
+    }
+    section .section-loadmore div a{
+        font-size: 14px;
+        line-height: 12px;
+        text-decoration: none;
+        color: #626262;
     }
 
     footer .footer-1 .item-footer-1 .row {

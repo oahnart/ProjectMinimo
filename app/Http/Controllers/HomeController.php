@@ -23,7 +23,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    function index()
     {
         $categories = Category::all();
         $news1 = DB::table('news')->take(2)->where('category_id','=',5)->orderBy('id','desc')->get();
@@ -31,4 +31,11 @@ class HomeController extends Controller
         $news3 = DB::table('news')->take(2)->where('category_id','=',7)->orderBy('id','desc')->get();
         return view('home',compact('news1','news2','news3','categories'));
     }
+
+    function load_more(){
+        $categories = Category::all();
+        $news = DB::table('news')->take(10)->orderBy('id','desc')->get();
+        return view('loadmoreHome',compact('categories','news'));
+    }
+
 }
