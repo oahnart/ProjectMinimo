@@ -15,7 +15,7 @@ class CategoryController extends Controller
      * List category
      *
      * @return Response
-     * @var request
+     * @var
      */
     function getListCategory()
     {
@@ -61,6 +61,7 @@ class CategoryController extends Controller
      *
      * @return Response
      * @var request
+     * @var id
      */
 
     function getEditCategory($id)
@@ -95,7 +96,7 @@ class CategoryController extends Controller
      * delete category
      *
      * @return Response
-     * @var request
+     * @var id
      */
 
     function getDeleteCategory($id)

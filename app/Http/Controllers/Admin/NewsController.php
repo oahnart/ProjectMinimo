@@ -16,7 +16,7 @@ class NewsController extends Controller
      * list news
      *
      * @return Response
-     * @var request
+     * @var
      */
     function getListNews()
     {
@@ -80,6 +80,7 @@ class NewsController extends Controller
      *
      * @return Response
      * @var request
+     * @var id
      */
 
     function getEditNews($id)
@@ -130,7 +131,7 @@ class NewsController extends Controller
      * delete news
      *
      * @return Response
-     * @var request
+     * @var id
      */
 
     function getDeleteNews($id)

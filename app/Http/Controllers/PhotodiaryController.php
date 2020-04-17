@@ -15,7 +15,7 @@ class PhotodiaryController extends Controller
      * All News Category Photodiary
      *
      * @return Response
-     * @var request
+     * @var
      */
 
     function index(){
@@ -28,7 +28,7 @@ class PhotodiaryController extends Controller
      * Loadmore Category Photodiary
      *
      * @return Response
-     * @var request
+     * @var
      */
 
     function load_more(){

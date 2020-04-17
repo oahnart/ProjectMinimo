@@ -15,7 +15,7 @@ class LiftstyleController extends Controller
      * All News Category liftstyle
      *
      * @return Response
-     * @var request
+     * @var
      */
 
     function index(){
@@ -28,7 +28,7 @@ class LiftstyleController extends Controller
      * Loadmore Category Liftstyle
      *
      * @return Response
-     * @var request
+     * @var
      */
 
     function load_more(){
