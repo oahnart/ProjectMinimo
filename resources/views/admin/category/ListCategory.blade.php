@@ -19,7 +19,7 @@
                     <td>{{$categories->id}}</td>
                     <td>{{$categories->category_name}}</td>
                     <td>{{$categories->description}}</td>
-                    <td>{{date('d-m-Y h:m', strtotime($categories->created_at)) }}</td>
+                    <td>{{$categories->created_at}}</td>
                     <th>
                         <a href="{{route('edit_category',$categories->id)}}" class="btn btn-primary">Edit</a>
                         <a onclick="return confirm('are you sure')" href="{{route('delete_category',$categories->id)}}" class="btn btn-primary">Delete</a>
