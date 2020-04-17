@@ -161,6 +161,9 @@ a{
         font-family: "Playfair Display";
         line-height: 24px;
     }
+    section .section-form .item-section-form button{
+        border: 1px;
+    }
     section .section-form .item-section-form form{
         max-width: 400px;
         margin: 0 auto;
@@ -351,6 +354,9 @@ a{
         font-size: 10px;
         font-family: "Playfair Display";
         line-height: 14px;
+    }
+    section .section-form .item-section-form button{
+        border: 1px;
     }
     section .section-form .item-section-form form{
         max-width: 200px;

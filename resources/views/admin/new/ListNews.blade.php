@@ -32,7 +32,7 @@
                     <td>{{date('d-m-Y h:m', strtotime($new->created_at)) }}</td>
                     <th>
                         <a href="{{route('edit_news',$new->id)}}" class="btn btn-primary">Edit</a>
-                        <a href="{{route('delete_news',$new->id)}}" class="btn btn-primary">Delete</a>
+                        <a onclick="return confirm('are you sure')" href="{{route('delete_news',$new->id)}}" class="btn btn-primary">Delete</a>
                     </th>
                 </tr>
             @endforeach

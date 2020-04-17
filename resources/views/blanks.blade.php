@@ -1,0 +1,1 @@
+{{$name}} muốn nhận thông tin

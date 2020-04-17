@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -38,4 +41,18 @@ class HomeController extends Controller
         return view('loadmoreHome',compact('categories','news'));
     }
 
+    public function postmail(Request $request){
+        $input = $request->all();
+        Mail::send('blanks',array('name'=>$input['name']),function ($message){
+            $message->from('tranhao2019q@gmail.com','Trần Hào');
+            $message->to('tranhao2019q@gmail.com','Người lạ');
+            $message->subject('đây là mail trần hào');
+        });
+        echo "
+            <script>
+                alert('Bạn đã đăng kí thành công');
+                window.location = '".url('/home')."'
+            </script>
+        ";
+    }
 }
