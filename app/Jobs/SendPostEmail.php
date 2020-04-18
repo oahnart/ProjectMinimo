@@ -10,21 +10,22 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
+use App\Mail\SendEmail;
 
 class SendPostEmail implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $post;
+    protected $data;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(Post $post)
+    public function __construct($data)
     {
         //
-        $this->post = $post;
+        $this->data = $data;
     }
 
     /**
@@ -34,15 +35,7 @@ class SendPostEmail implements ShouldQueue
      */
     public function handle()
     {
-        //
-        $data = array(
-           'email'=> $this->post->email
-        );
-        Mail::send('blanks',$data,
-            function ($message) {
-                $message->from(env('MAIL_USERNAME'), 'Trần Hào');
-                $message->to('tranhao491999@gmail.com');
-                $message->subject('đây là mail trần hào');
-            });
+        $email = new SendEmail();
+        Mail::to('tranhao491999@gmail.com')->send($email);
     }
 }

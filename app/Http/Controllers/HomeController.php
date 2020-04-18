@@ -84,7 +84,8 @@ class HomeController extends Controller
         $post = new Post();
         $post->email = $posts['email'];
         $post->save();
-        $this->dispatch(new SendPostEmail($post));
+        $data = [];
+        SendPostEmail::dispatch($data);
         return redirect()->back()->with('status','bạn đã đăng kí thành công');
     }
 }
