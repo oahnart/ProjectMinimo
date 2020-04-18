@@ -3,17 +3,20 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Jobs\SendPostEmail;
+use App\Post;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Self_;
 
-define('takeIndex', 2);
-define('takeLoadmore', 10);
 
 class HomeController extends Controller
 {
+    const takeIndex = 2;
+    const takeLoadmore = 10;
 
     /**
      * Create a new controller instance.
@@ -38,14 +41,14 @@ class HomeController extends Controller
      * @var
      */
 
-    function index()
+    function index(Request $request)
     {
         $categories = Category::all();
-        $news1 = DB::table('news')->take(takeIndex)
+        $news1 = DB::table('news')->take(self::takeIndex)
             ->where('category_id', '=', 5)->orderBy('id', 'desc')->get();
-        $news2 = DB::table('news')->take(takeIndex)
+        $news2 = DB::table('news')->take(self::takeIndex)
             ->where('category_id', '=', 6)->orderBy('id', 'desc')->get();
-        $news3 = DB::table('news')->take(takeIndex)
+        $news3 = DB::table('news')->take(self::takeIndex)
             ->where('category_id', '=', 7)->orderBy('id', 'desc')->get();
         return view('home', compact('news1', 'news2', 'news3', 'categories'));
     }
@@ -60,7 +63,7 @@ class HomeController extends Controller
     function load_more()
     {
         $categories = Category::all();
-        $news = DB::table('news')->take(takeLoadmore)->orderBy('id', 'desc')
+        $news = DB::table('news')->take(self::takeLoadmore)->orderBy('id', 'desc')
             ->get();
         return view('loadmoreHome', compact('categories', 'news'));
     }
@@ -74,18 +77,14 @@ class HomeController extends Controller
 
     public function postmail(Request $request)
     {
-        $input = $request->all();
-        Mail::send('blanks', array('name' => $input['name']),
-            function ($message) {
-                $message->from('tranhao2019q@gmail.com', 'Trần Hào');
-                $message->to('tranhao2019q@gmail.com', 'Người lạ');
-                $message->subject('đây là mail trần hào');
-            });
-        echo "
-            <script>
-                alert('Bạn đã đăng kí thành công');
-                window.location = '" . url('/home') . "'
-            </script>
-        ";
+        $posts= $request->all();
+        $request->validate([
+           'email'=>'required|email'
+        ]);
+        $post = new Post();
+        $post->email = $posts['email'];
+        $post->save();
+        $this->dispatch(new SendPostEmail($post));
+        return redirect()->back()->with('status','bạn đã đăng kí thành công');
     }
 }

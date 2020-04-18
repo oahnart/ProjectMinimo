@@ -21,6 +21,14 @@
     <link rel="stylesheet" href="{{asset('layout/FrontEnd/Css/minimo.css')}}">
 </head>
 <body>
+<div class="container">
+    @if (session('status'))
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            {{session('status')}}
+        </div>
+    @endif
+</div>
 <header class="container">
     <nav class="navbar navbar-expand-md bg-white navbar-light">
         <a class="navbar-brand" href="{{route('home')}}"><img src="{{asset('layout/FrontEnd/images/minimo12.jpg')}}" alt=""></a>

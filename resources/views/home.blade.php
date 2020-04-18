@@ -81,7 +81,7 @@
             <div class="item-section-form">
                 <div class="item-p">Sign up for our newsletter!</div>
                 <form action="{{route('postmail')}}" method="post">
-                    <input type="text" name="name" placeholder="Enter a valid email address">
+                    <input type="email" name="email" placeholder="Enter a valid email address">
                     <button type="submit"><img src="{{asset('layout/FrontEnd/images/icon.png')}}" alt=""></button>
                     {{csrf_field()}}
                 </form>

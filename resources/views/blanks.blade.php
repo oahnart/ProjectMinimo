@@ -1,1 +1,1 @@
-{{$name}} muốn nhận thông tin
+{{$email}} bạn đã nhận được thông tin
