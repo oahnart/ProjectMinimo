@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Jobs\SendPostEmail;
 use App\Post;
+use App\Repositories\PostRepository;
 use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -15,19 +16,21 @@ use phpDocumentor\Reflection\Types\Self_;
 
 class HomeController extends Controller
 {
-    const takeIndex = 2;
-    const takeLoadmore = 10;
+    const PAGE_SIZE = 2 ;
+    const PAGE_SIZE_LOADMORE = 10 ;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    protected $postRepository;
+
+    public function __construct(PostRepository $postRepository)
     {
         $this->middleware('auth');
+        $this->postRepository = $postRepository;
     }
-
     /**
      * Show the application dashboard.
      *
@@ -41,15 +44,12 @@ class HomeController extends Controller
      * @var
      */
 
-    function index(Request $request)
+    function index()
     {
-        $categories = Category::all();
-        $news1 = DB::table('news')->take(self::takeIndex)
-            ->where('category_id', '=', 5)->orderBy('id', 'desc')->get();
-        $news2 = DB::table('news')->take(self::takeIndex)
-            ->where('category_id', '=', 6)->orderBy('id', 'desc')->get();
-        $news3 = DB::table('news')->take(self::takeIndex)
-            ->where('category_id', '=', 7)->orderBy('id', 'desc')->get();
+        $categories = $this->postRepository->allCategory();
+        $news1 = $this->postRepository->getIndex(5,self::PAGE_SIZE);
+        $news2 = $this->postRepository->getIndex(6,self::PAGE_SIZE);
+        $news3 = $this->postRepository->getIndex(7,self::PAGE_SIZE);
         return view('home', compact('news1', 'news2', 'news3', 'categories'));
     }
 
@@ -62,9 +62,8 @@ class HomeController extends Controller
 
     function load_more()
     {
-        $categories = Category::all();
-        $news = DB::table('news')->take(self::takeLoadmore)->orderBy('id', 'desc')
-            ->get();
+        $categories = $this->postRepository->allCategory();
+        $news = $this->postRepository->getLoadMore(self::PAGE_SIZE_LOADMORE);
         return view('loadmoreHome', compact('categories', 'news'));
     }
 
@@ -81,11 +80,11 @@ class HomeController extends Controller
         $request->validate([
            'email'=>'required|email'
         ]);
-        $post = new Post();
+        $post = $this->postRepository->newPost();
         $post->email = $posts['email'];
         $post->save();
         $data = [];
-        SendPostEmail::dispatch($data);
+        $this->dispatch(new SendPostEmail($data));
         return redirect()->back()->with('status','bạn đã đăng kí thành công');
     }
 }

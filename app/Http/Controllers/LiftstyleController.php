@@ -4,14 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\News;
+use App\Repositories\PostRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class LiftstyleController extends Controller
 {
-    const takeIndex = 8;
-    const takeLoadmore = 10;
+    const PAGE_SIZE = 8 ;
+    const PAGE_SIZE_LOADMORE = 10 ;
     //
+    protected $postRepository;
+
+    public function __construct(PostRepository $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
     /**
      * All News Category liftstyle
      *
@@ -20,8 +27,8 @@ class LiftstyleController extends Controller
      */
 
     function index(){
-        $categories = Category::all();
-        $news = DB::table('news')->take(self::takeIndex)->where('category_id','=',5)->orderBy('id','desc')->get();
+        $categories = $this->postRepository->allCategory();
+        $news = $this->postRepository->getIndex(5,self::PAGE_SIZE);
         return view('liftstyle',compact('news','categories'));
     }
 
@@ -33,8 +40,8 @@ class LiftstyleController extends Controller
      */
 
     function load_more(){
-        $categories = Category::all();
-        $news = DB::table('news')->take(self::takeLoadmore)->where('category_id','=',5)->orderBy('id','desc')->get();
+        $categories = $this->postRepository->allCategory();
+        $news = $this->postRepository->getIndex(5,self::PAGE_SIZE_LOADMORE);
         return view('loadmoreHome',compact('categories','news'));
     }
 }

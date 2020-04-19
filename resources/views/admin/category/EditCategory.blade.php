@@ -34,7 +34,7 @@
                     <td colspan="2">
                         <div class="float-right">
                             <button type="submit" class="btn btn-primary">Save</button>
-                            <button type="submit" class="btn btn-primary">Cancle</button>
+                            <a  class="btn btn-primary" href="{{route('list_category')}}">Cancle</a>
                         </div>
                     </td>
                 </tr>

@@ -28,7 +28,7 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-        return $this->from('tranhao491999@gmail.comm', 'Mailtrap')
+        return $this->from(env('MAIL_USERNAME'), 'Mailtrap')
             ->subject('Test Queued Email')
             ->view('blanks');
     }

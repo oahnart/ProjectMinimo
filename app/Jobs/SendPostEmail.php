@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use App\Post;
-use http\Env\Request;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
@@ -35,7 +34,8 @@ class SendPostEmail implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SendEmail();
+        $data = [];
+        $email = new SendEmail($data);
         Mail::to('tranhao491999@gmail.com')->send($email);
     }
 }

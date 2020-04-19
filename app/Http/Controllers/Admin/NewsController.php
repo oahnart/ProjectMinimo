@@ -8,9 +8,17 @@ use App\News;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Mockery\Exception;
+use App\Repositories\PostRepository;
 
 class NewsController extends Controller
 {
+    protected $postRepository;
+    public function __construct(
+        PostRepository $postRepository
+    )
+    {
+        $this->postRepository = $postRepository;
+    }
     //
     /**
      * list news
@@ -20,8 +28,8 @@ class NewsController extends Controller
      */
     function getListNews()
     {
-        $news = News::all();
-        $categories = Category::all();
+        $news = $this->postRepository->allNews();
+        $categories = $this->postRepository->allCategory();
         return view('admin.new.ListNews', compact('news', 'categories'));
     }
 
@@ -32,13 +40,13 @@ class NewsController extends Controller
      * @var request
      */
 
-    function getAddNews()
+    public function getAddNews()
     {
-        $categories = Category::all();
+        $categories  = $this->postRepository->allCategory();
         return view('admin.new.AddNews', compact('categories'));
     }
 
-    function postAddNews(Request $request)
+    public function postAddNews(Request $request)
     {
         DB::beginTransaction();
         try {
@@ -47,7 +55,7 @@ class NewsController extends Controller
                 'name' => 'required',
                 'description' => 'required',
             ]);
-            $newsModel = new News();
+            $newsModel  = $this->postRepository->newNews();
             $newsModel->category_id = $post['category_id'];
             $newsModel->name = $post['name'];
             $newsModel->description = $post['description'];
@@ -83,14 +91,14 @@ class NewsController extends Controller
      * @var id
      */
 
-    function getEditNews($id)
+    public function getEditNews($id)
     {
-        $news = News::find($id);
-        $categories = Category::all();
+        $news =  $this->postRepository->findNews($id);
+        $categories = $this->postRepository->allCategory();
         return view('admin.new.EditNews', compact('news', 'categories'));
     }
 
-    function postEditNews($id, Request $request)
+    public function postEditNews($id, Request $request)
     {
         DB::beginTransaction();
         try {
@@ -99,7 +107,7 @@ class NewsController extends Controller
                 'name' => 'required',
                 'description' => 'required',
             ]);
-            $newsModel = News::find($id);
+            $newsModel = $this->postRepository->findNews($id);
             $newsModel->category_id = $post['category_id'];
             $newsModel->name = $post['name'];
             $newsModel->description = $post['description'];
@@ -133,12 +141,11 @@ class NewsController extends Controller
      * @return Response
      * @var id
      */
-
-    function getDeleteNews($id)
+    public function getDeleteNews($id)
     {
         DB::beginTransaction();
         try {
-            $news = News::find($id);
+            $news = $this->postRepository->findNews($id);
             $news->delete();
             DB::commit();
         } catch (Exception $e) {
