@@ -13,4 +13,6 @@ interface PostRepositoryInterface
     public function newPost();
     public function findCategory($id);
     public function findNews($id);
+    public function save($data);
+    public function delete($data);
 }

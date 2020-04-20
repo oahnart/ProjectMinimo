@@ -54,7 +54,7 @@ class CategoryController extends Controller
             $CategoryModel = $this->postRepository->newCategory();
             $CategoryModel->category_name = $post['category_name'];
             $CategoryModel->description = $post['description'];
-            $CategoryModel->save();
+            $this->postRepository->save($CategoryModel);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
@@ -89,7 +89,7 @@ class CategoryController extends Controller
             $CategoryModel = $this->postRepository->findCategory($id);
             $CategoryModel->category_name = $post['category_name'];
             $CategoryModel->description = $post['description'];
-            $CategoryModel->save();
+            $this->postRepository->save($CategoryModel);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
@@ -111,7 +111,7 @@ class CategoryController extends Controller
         DB::beginTransaction();
         try {
             $category = $this->postRepository->findCategory($id);
-            $category->delete();
+            $this->postRepository->delete($category);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();

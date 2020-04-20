@@ -65,4 +65,13 @@ class PostRepository implements PostRepositoryInterface
         return News::find($id);
     }
 
+    public function save($data)
+    {
+        return $data->save();
+    }
+    public function delete($data)
+    {
+        return $data->delete();
+    }
+
 }

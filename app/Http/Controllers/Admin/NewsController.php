@@ -59,7 +59,7 @@ class NewsController extends Controller
             $newsModel->category_id = $post['category_id'];
             $newsModel->name = $post['name'];
             $newsModel->description = $post['description'];
-            if ($newsModel->save()) {
+            if ($this->postRepository->save($newsModel)) {
                 if ($request->hasFile('news_image_intro')) {
                     $file = $request->news_image_intro;
                     $file_name = $file->getClientOriginalName();
@@ -72,7 +72,7 @@ class NewsController extends Controller
                         $random . $file->getClientOriginalName());
                     $newsModel->news_image_intro = 'upload/news/' . $random
                         . $file->getClientOriginalName();
-                    $newsModel->save();
+                    $this->postRepository->save($newsModel);
                 }
             }
             DB::commit();
@@ -111,7 +111,7 @@ class NewsController extends Controller
             $newsModel->category_id = $post['category_id'];
             $newsModel->name = $post['name'];
             $newsModel->description = $post['description'];
-            if ($newsModel->save()) {
+            if ($this->postRepository->save($newsModel)) {
                 if ($request->hasFile('news_image_intro')) {
                     $file = $request->news_image_intro;
                     $file_name = $file->getClientOriginalName();
@@ -124,7 +124,7 @@ class NewsController extends Controller
                         $random . $file->getClientOriginalName());
                     $newsModel->news_image_intro = 'upload/news/' . $random
                         . $file->getClientOriginalName();
-                    $newsModel->save();
+                    $this->postRepository->save($newsModel);
                 }
             }
             DB::commit();
@@ -146,7 +146,7 @@ class NewsController extends Controller
         DB::beginTransaction();
         try {
             $news = $this->postRepository->findNews($id);
-            $news->delete();
+            $this->postRepository->delete($news);
             DB::commit();
         } catch (Exception $e) {
             DB::rollBack();
