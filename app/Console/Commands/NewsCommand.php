@@ -39,10 +39,10 @@ class NewsCommand extends Command
     public function handle()
     {
         //
-        DB::table('news')->insert([
-            'name' => 'More than just a music festival',
-            'category_id' => 'LIFTESTYLE',
-            'news_image_intro'=>'',
+        return DB::table('news')->insert([
+            'name' => 'More than just a music festival2',
+            'news_image_intro'=>'upload/news/21475minimo2.jpg',
+            'category_id' => '5',
             'description' => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit'
         ]);
     }
